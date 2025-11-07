@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
+require "thor"
+require "osc-ruby"
+require "timeout"
+
 require_relative "spx/version"
 
-module Spx
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "spx/log_parser"
+require_relative "spx/runner"
+require_relative "spx/cli"

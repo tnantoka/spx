@@ -1,0 +1,45 @@
+Sonic Pi Spider Server booting...
+The time is 2025-11-04 23:27:08 +0900
+Using primary protocol: udp
+Detecting port numbers...
+Ports: {:server_port=>31325, :gui_port=>31326, :scsynth_port=>31327, :scsynth_send_port=>31327, :osc_cues_port=>4560, :tau_port=>31328, :listen_to_tau_port=>31332}
+Token: 1016990984
+Opening UDP Server to listen to GUI on port: 31325
+Spider - Pulling in modules...
+Spider - Starting Runtime Server
+TauComms - Sending /ping to tau: 127.0.0.1:31328
+TauComms - Sending /ping to tau: 127.0.0.1:31328
+TauComms - Receiving ack from tau
+TauComms - connection established
+studio - init
+scsynth boot - Waiting for the SuperCollider Server to have booted...
+scsynth boot - Sending /status to server: 127.0.0.1:31327
+scsynth boot - Receiving ack from scsynth
+scsynth boot - Server connection established
+scsynth - clear!
+scsynth - clear schedule 
+scsynth - schedule cleared!
+scsynth - group clear 0
+scsynth - group clear 0 completed
+Studio - Initialised SuperCollider Audio Server v3.13.0
+Studio - Resetting server
+Studio - Reset and setup groups and busses
+Studio - Clearing scsynth
+scsynth - clear schedule
+scsynth - clear scsynth
+scsynth - clear!
+scsynth - clear schedule 
+scsynth - schedule cleared!
+scsynth - group clear 0
+scsynth - group clear 0 completed
+scsynth - cleared scsynth
+scsynth - bus allocators reset
+Studio - Allocating audio bus
+Studio - Create Base Synth Groups
+Studio - Starting mixer
+Studio - Starting scope
+Spider - Runtime Server Initialised
+Spider - Registering incoming Spider Server API endpoints
+Spider - Booted Successfully.
+Spider - v4.5, OS osx, on Ruby  3.2.2 | 3.2.0.
+Spider - ------------------------------------------
