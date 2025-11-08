@@ -1,7 +1,11 @@
 AllCops:
   TargetRubyVersion: 3.1
   Exclude:
-    - spec/fixtures/**
+    - spec/fixtures/*
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
 
 Style/Documentation:
   Enabled: false

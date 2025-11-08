@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
+require "simplecov"
+SimpleCov.start do
+  enable_coverage :branch
+  minimum_coverage line: 100, branch: 100
+end
+
 require "spx"
 
 RSpec.configure do |config|

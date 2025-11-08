@@ -13,11 +13,8 @@ module Spx
     desc "test-connection", "Test connection to Sonic Pi"
     shared_options
     def test_connection
-      if runner.test_connection
-        puts "OK"
-      else
-        puts "NG"
-        exit 1
+      runner.test_connection.tap do |connected|
+        say connected ? "OK" : "NG"
       end
     end
 
@@ -25,8 +22,8 @@ module Spx
     shared_options
     def play(file)
       unless runner.test_connection
-        puts "Cannot connect to Sonic Pi"
-        exit 1
+        say "Cannot connect to Sonic Pi"
+        return false
       end
 
       runner.play(File.read(file))
@@ -37,8 +34,8 @@ module Spx
     method_option :output, aliases: "-o", desc: "Output file", default: "./output.wav"
     def record(file)
       unless runner.test_connection
-        puts "Cannot connect to Sonic Pi"
-        exit 1
+        say "Cannot connect to Sonic Pi"
+        return false
       end
 
       runner.record(
@@ -49,7 +46,7 @@ module Spx
 
     desc "version", "Show version"
     def version
-      puts Spx::VERSION
+      say Spx::VERSION
     end
 
     private
@@ -60,10 +57,6 @@ module Spx
         port, token = parser.parse.values_at(:port, :token)
         Runner.new(port, token, options[:callback_port].to_i)
       end
-    end
-
-    def read_file
-      File.read(File.expand_path(le))
     end
   end
 end
