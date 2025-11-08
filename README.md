@@ -1,38 +1,34 @@
-# Spx
+# Spx: Sonic Pi eXecutor
 
-TODO: Delete this and the text below, and describe your gem
+Spx is a CLI tool to play or record Sonic Pi code by using Sonic Pi's built-in OSC server.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/spx`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Requirements
 
-## Installation
-
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
-Install the gem and add to the application's Gemfile by executing:
-
-```bash
-bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
-```
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-```bash
-gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
-```
+- [Sonic Pi](https://github.com/sonic-pi-net/sonic-pi) (version 4.5.0 or later)
+- Ruby
 
 ## Usage
 
-TODO: Write usage instructions here
+```bash
+# Help
+gem exec spx
 
-## Development
+# Test connection to Sonic Pi
+gem exec spx test_connection
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+# Play Sonic Pi code
+gem exec spx play path/to/sonic-pi-code.rb
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+# Record Sonic Pi code
+gem exec spx record path/to/sonic-pi-code.rb -o path/to/output.wav
+```
 
-## Contributing
+If `gem exec` is not available, you can use the following command instead:
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/tnantoka/spx.
+```bash
+gem install -g spx
+spx
+```
 
 ## License
 
