@@ -1,7 +1,13 @@
+plugins:
+  - rubocop-rake
+  - rubocop-rspec
+
 AllCops:
   TargetRubyVersion: 3.1
+  NewCops: enable
   Exclude:
     - spec/fixtures/*
+    - vendor/**/*
 
 Metrics/BlockLength:
   Exclude:
@@ -15,3 +21,9 @@ Style/StringLiterals:
 
 Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false

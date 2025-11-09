@@ -2,6 +2,6 @@
 
 RSpec.describe Spx do
   it "has a version number" do
-    expect(Spx::VERSION).not_to be nil
+    expect(Spx::VERSION).not_to be_nil
   end
 end

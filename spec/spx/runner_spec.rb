@@ -66,21 +66,23 @@ RSpec.describe Spx::Runner do
     it do
       run
 
-      start_message = OSC::Message.new(described_class::MESSAGES[:start_recording], token)
-      expect(client).to have_received(:send).with(start_message)
+      aggregate_failures do
+        start_message = OSC::Message.new(described_class::MESSAGES[:start_recording], token)
+        expect(client).to have_received(:send).with(start_message)
 
-      run_message = OSC::Message.new(
-        described_class::MESSAGES[:run_code],
-        token,
-        runner.send(:code_with_callback, code, described_class::MESSAGES[:record_callback])
-      )
-      expect(client).to have_received(:send).with(run_message)
+        run_message = OSC::Message.new(
+          described_class::MESSAGES[:run_code],
+          token,
+          runner.send(:code_with_callback, code, described_class::MESSAGES[:record_callback])
+        )
+        expect(client).to have_received(:send).with(run_message)
 
-      stop_message = OSC::Message.new(described_class::MESSAGES[:stop_recording], token)
-      expect(client).to have_received(:send).with(stop_message)
+        stop_message = OSC::Message.new(described_class::MESSAGES[:stop_recording], token)
+        expect(client).to have_received(:send).with(stop_message)
 
-      save_message = OSC::Message.new(described_class::MESSAGES[:save_recording], token, output_file)
-      expect(client).to have_received(:send).with(save_message)
+        save_message = OSC::Message.new(described_class::MESSAGES[:save_recording], token, output_file)
+        expect(client).to have_received(:send).with(save_message)
+      end
     end
   end
 end
